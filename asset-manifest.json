@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/taxi/static/css/main.5e4c4934.css",
+    "main.js": "/taxi/static/js/main.0656387e.js",
+    "index.html": "/taxi/index.html",
+    "main.5e4c4934.css.map": "/taxi/static/css/main.5e4c4934.css.map",
+    "main.0656387e.js.map": "/taxi/static/js/main.0656387e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e4c4934.css",
+    "static/js/main.0656387e.js"
+  ]
+}
