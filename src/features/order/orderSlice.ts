@@ -18,7 +18,7 @@ export const { addOrder } = orderSlice.actions
 export const orderReducer = orderSlice.reducer
 
 export const getAddressByCoordinates = createAsyncThunk(
-  'order/getAddress',
+  'order/getAddressByCoordinates',
   (coordinates: number[], { dispatch }) => {
     //@ts-ignore
     window.ymaps
@@ -27,6 +27,28 @@ export const getAddressByCoordinates = createAsyncThunk(
         const firstGeoObject = res.geoObjects.get(0)
         const address: AddressType = {
           address: firstGeoObject.getAddressLine(),
+          lat: coordinates[0],
+          lon: coordinates[1],
+        }
+        dispatch(addOrder(address))
+      })
+      .catch(() => {
+        return null
+      })
+  }
+)
+
+export const getCoordinatesByAddress = createAsyncThunk(
+  'order/getCoordinatesByAddress',
+  (searchAddress: string, { dispatch }) => {
+    //@ts-ignore
+    window.ymaps
+      .geocode(searchAddress)
+      .then((res: any) => {
+        const firstGeoObject = res.geoObjects.get(0)
+        const coordinates = firstGeoObject.geometry.getCoordinates()
+        const address: AddressType = {
+          address: searchAddress,
           lat: coordinates[0],
           lon: coordinates[1],
         }
