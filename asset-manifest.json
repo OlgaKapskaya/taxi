@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/taxi/static/css/main.5e4c4934.css",
-    "main.js": "/taxi/static/js/main.0656387e.js",
+    "main.js": "/taxi/static/js/main.1d0dc462.js",
     "index.html": "/taxi/index.html",
     "main.5e4c4934.css.map": "/taxi/static/css/main.5e4c4934.css.map",
-    "main.0656387e.js.map": "/taxi/static/js/main.0656387e.js.map"
+    "main.1d0dc462.js.map": "/taxi/static/js/main.1d0dc462.js.map"
   },
   "entrypoints": [
     "static/css/main.5e4c4934.css",
-    "static/js/main.0656387e.js"
+    "static/js/main.1d0dc462.js"
   ]
 }
