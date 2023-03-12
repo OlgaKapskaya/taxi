@@ -15,3 +15,6 @@
 .input {
   width: 100%;
 }
+.input input {
+  font-size: 14px;
+}

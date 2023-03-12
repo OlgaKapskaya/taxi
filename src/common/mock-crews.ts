@@ -45,8 +45,8 @@ const crews: CrewType[] = [
       name: 'Петров',
       phone: '8877',
     },
-    lat: 53.903401,
-    lon: 27.556137,
+    lat: 53.90393596514452,
+    lon: 27.554710783934965,
     distance: undefined,
   },
 ]
