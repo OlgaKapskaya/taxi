@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit'
 import { AddressType, OrderType } from '../../common/types'
 
 export const orderSlice = createSlice({
