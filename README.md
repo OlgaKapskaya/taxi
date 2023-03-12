@@ -1,46 +1,29 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Taxi
 
-## Available Scripts
+Cделать страницу заказа такси с формой и картой.
 
-In the project directory, you can run:
+Форма заказа:
+“Откуда” - вводится адрес подачи такси, обязательное поле.
+Формат ввода "Улица, номер дома".
+На карте должен отобразиться маркер в этом месте.
+Если адрес не найден, то поле считается не валидным.
+Также можно заполнить это поле, щелкнув на карте в нужном месте.
+Также при отправке формы передаются поля source_time (время подачи) и crew_id (ИД выбранного экипажа), смотрите описание запроса создания в конце задания.
+Валидация полей происходит после изменения значений полей.
+При щелчке по кнопке "Заказать" происходит полная валидация формы и кнопка становится недоступной пока все ошибки не исправлены.
+Например, если, заполняя поля сразу нажать кнопку "Заказать",
+то под полем "Откуда" появится подсказка, что это поле обязательное.
 
-### `npm start`
+Карта:
+Предлагается использовать Яндекс-карты (можете взять более удобные вам карты).
+При щелчке на карте:
+-	ищется адрес выбранного места,
+-	заменяется текущее значение поля "Откуда",
+-	в месте щелчка появляется желтый маркер,
+-	на сервер отправляется запрос поиска подходящих экипажей,
+-	найденные экипажи отображаются на карте зелеными маркерами и выводятся в список экипажей отсортированными по возрастанию расстояния до точки подачи.
+     Первый экипаж из этого списка считается "подходящим" и отображается под формой заказа.
+     Если адрес не найден, то в месте щелчка появляется красный маркер с подписью "Адрес не найден".
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
