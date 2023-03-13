@@ -41,7 +41,7 @@ export const SearchAddress = () => {
         <LoadingBtn />
       ) : (
         <Button onClick={onClickHandler} variant="contained" disabled={value.trim() === ''}>
-          Search
+          Поиск
         </Button>
       )}
     </Box>
