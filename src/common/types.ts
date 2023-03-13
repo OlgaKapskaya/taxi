@@ -4,7 +4,7 @@ export type CrewType = {
   driver: DriverType
   lat: number
   lon: number
-  distance?: number
+  distance: number
 }
 
 export type CarType = {

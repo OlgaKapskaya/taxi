@@ -1,4 +1,5 @@
 import { CrewType } from '../types'
+import { randomInteger } from './randomInteger'
 
 export const generateCrews = (coordinates: number[]) => {
   const [lat, lon] = coordinates
@@ -18,7 +19,7 @@ export const generateCrews = (coordinates: number[]) => {
       },
       lat: lat + 0.00267,
       lon: lon + 0.009012,
-      distance: 900,
+      distance: randomInteger(100, 900),
     },
     {
       crew_id: 2,
@@ -34,7 +35,7 @@ export const generateCrews = (coordinates: number[]) => {
       },
       lat: lat - 0.0022892,
       lon: lon - 0.0030002,
-      distance: 600,
+      distance: randomInteger(100, 900),
     },
     {
       crew_id: 3,
@@ -50,7 +51,7 @@ export const generateCrews = (coordinates: number[]) => {
       },
       lat: lat + 0.001215,
       lon: lon + 0.001243,
-      distance: 300,
+      distance: randomInteger(100, 900),
     },
     {
       crew_id: 4,
@@ -66,7 +67,7 @@ export const generateCrews = (coordinates: number[]) => {
       },
       lat: lat - 0.001255,
       lon: lon + 0.001217,
-      distance: 270,
+      distance: randomInteger(100, 900),
     },
     {
       crew_id: 5,
@@ -82,7 +83,7 @@ export const generateCrews = (coordinates: number[]) => {
       },
       lat: lat + 0.001237,
       lon: lon - 0.001269,
-      distance: 370,
+      distance: randomInteger(100, 900),
     },
   ]
   return new Promise<CrewType[]>((res) => {
