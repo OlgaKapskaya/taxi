@@ -8,11 +8,11 @@ export const orderSlice = createSlice({
   reducers: {
     addAddress: (state, action: PayloadAction<AddressType>) => {
       state.addresses = action.payload
-      state.order_id = nanoid()
     },
     addOrder: (state, action: PayloadAction<number>) => {
       state.source_time = Date.now()
       state.crew_id = action.payload
+      state.order_id = nanoid(4)
     },
   },
 })
@@ -67,6 +67,9 @@ export const getCoordinatesByAddress = createAsyncThunk(
   }
 )
 
-// export const createOrder = createAsyncThunk('order/createOrder', (crew_id: number, { dispatch }) => {
-//   dispatch(addOrder(crew_id))
-// })
+export const createOrder = createAsyncThunk(
+  'order/createOrder',
+  (crew_id: number, { dispatch }) => {
+    dispatch(addOrder(crew_id))
+  }
+)

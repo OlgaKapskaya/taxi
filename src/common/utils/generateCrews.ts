@@ -1,5 +1,5 @@
 import { CrewType } from '../types'
-import { randomInteger } from './randomInteger'
+import { randomCoordinates, randomInteger } from './randomInteger'
 
 export const generateCrews = (coordinates: number[]) => {
   const [lat, lon] = coordinates
@@ -17,8 +17,8 @@ export const generateCrews = (coordinates: number[]) => {
         name: 'Деточкин',
         phone: '7788',
       },
-      lat: lat + 0.00267,
-      lon: lon + 0.009012,
+      lat: lat + randomCoordinates(),
+      lon: lon + randomCoordinates(),
       distance: randomInteger(100, 900),
     },
     {
@@ -33,8 +33,8 @@ export const generateCrews = (coordinates: number[]) => {
         name: 'Сидоров',
         phone: '7789',
       },
-      lat: lat - 0.0022892,
-      lon: lon - 0.0030002,
+      lat: lat - 0.0022892 + randomCoordinates(),
+      lon: lon - 0.0030002 + randomCoordinates(),
       distance: randomInteger(100, 900),
     },
     {
@@ -49,8 +49,8 @@ export const generateCrews = (coordinates: number[]) => {
         name: 'Петров',
         phone: '8877',
       },
-      lat: lat + 0.001215,
-      lon: lon + 0.001243,
+      lat: lat + 0.001215 - randomCoordinates(),
+      lon: lon + 0.001243 - randomCoordinates(),
       distance: randomInteger(100, 900),
     },
     {
@@ -65,8 +65,8 @@ export const generateCrews = (coordinates: number[]) => {
         name: 'Семенов',
         phone: '8879',
       },
-      lat: lat - 0.001255,
-      lon: lon + 0.001217,
+      lat: lat - 0.001255 + randomCoordinates(),
+      lon: lon + 0.001217 + randomCoordinates(),
       distance: randomInteger(100, 900),
     },
     {
@@ -81,8 +81,8 @@ export const generateCrews = (coordinates: number[]) => {
         name: 'Деревяго',
         phone: '4879',
       },
-      lat: lat + 0.001237,
-      lon: lon - 0.001269,
+      lat: lat + 0.001237 + randomCoordinates(),
+      lon: lon - 0.001269 + randomCoordinates(),
       distance: randomInteger(100, 900),
     },
   ]
