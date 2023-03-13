@@ -1,0 +1,10 @@
+.container {
+    position: absolute;
+    right: 35px;
+    bottom: 35px;
+    z-index: 100;
+
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 10px;
+}

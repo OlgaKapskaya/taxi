@@ -1,4 +1,4 @@
-import { CrewType } from './types'
+import { CrewType } from '../types'
 
 export const generateCrews = (coordinates: number[]) => {
   const [lat, lon] = coordinates
@@ -86,6 +86,6 @@ export const generateCrews = (coordinates: number[]) => {
     },
   ]
   return new Promise<CrewType[]>((res) => {
-    setTimeout(() => res(crews), 600)
+    setTimeout(() => res(crews), 1000)
   })
 }
