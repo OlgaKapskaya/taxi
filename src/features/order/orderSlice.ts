@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit'
 import { AddressType, OrderType } from '../../common/types'
+import { getCrewsTC } from '../crews/crewsSlice'
 
 export const orderSlice = createSlice({
   name: 'order',
@@ -30,6 +31,7 @@ export const getAddressByCoordinates = createAsyncThunk(
           lat: coordinates[0],
           lon: coordinates[1],
         }
+        dispatch(getCrewsTC(coordinates))
         dispatch(addOrder(address))
       })
       .catch(() => {
@@ -52,6 +54,7 @@ export const getCoordinatesByAddress = createAsyncThunk(
           lat: coordinates[0],
           lon: coordinates[1],
         }
+
         dispatch(addOrder(address))
       })
       .catch(() => {

@@ -35,7 +35,7 @@ export const YandexMap: FC<YandexMapPropsType> = ({ crews, personCoordinates }) 
         modules={['Placemark', 'geocode']}
         onClick={onMapClick}
         width="100%"
-        height="500px"
+        height="calc(100vh - 100px)"
       >
         {/*person*/}
         <Placemark

@@ -1,6 +1,6 @@
 import { CrewType } from '../../common/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { getCrews } from '../../common/mock-crews'
+import { generateCrews } from '../../common/generateCrews'
 
 const initialState = {
   crews: [] as CrewType[],
@@ -8,8 +8,8 @@ const initialState = {
 
 type CrewsStateType = typeof initialState
 
-export const getCrewsTC = createAsyncThunk('crews/getCrews', async () => {
-  return (await getCrews()) as CrewType[]
+export const getCrewsTC = createAsyncThunk('crews/getCrews', async (coordinates: number[]) => {
+  return generateCrews(coordinates)
 })
 
 export const crewsSlice = createSlice({
