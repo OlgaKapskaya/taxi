@@ -2,7 +2,7 @@ import { Map, Placemark, YMaps } from 'react-yandex-maps'
 import React, { FC } from 'react'
 import { CrewType } from '../../../types'
 import { useAppDispatch } from '../../../hooks/useAppDispatch'
-import { getAddressByCoordinates } from '../../../../features/order/orderSlice'
+import { getAddressByCoordinates } from '../../../../app/appSlice'
 
 type YandexMapPropsType = {
   crews: CrewType[]
@@ -11,9 +11,11 @@ type YandexMapPropsType = {
 
 export const YandexMap: FC<YandexMapPropsType> = ({ crews, personCoordinates }) => {
   const dispatch = useAppDispatch()
-
   const mapState = {
-    center: personCoordinates ? personCoordinates : [53.90393596514452, 27.554710783934965],
+    center:
+      personCoordinates && personCoordinates[0]
+        ? personCoordinates
+        : [53.90393596514452, 27.554710783934965],
     zoom: 17,
     searchControlProvider: 'yandex#search',
   }

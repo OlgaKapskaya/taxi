@@ -8,7 +8,7 @@ import { useAppSelector } from '../common/hooks/useAppSelector'
 import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
-  const order = useAppSelector((state) => state.order.order_id)
+  const order = useAppSelector((state) => state.app.order.order_id)
 
   const notify = () => {
     toast.success(`Ваш заказ №${order} принят, ожидайте звонка`, {

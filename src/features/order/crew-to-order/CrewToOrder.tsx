@@ -5,7 +5,7 @@ import { Crew } from '../../crews/crew/Crew'
 import { Button } from '@mui/material'
 import { PhoneEnabled } from '@mui/icons-material'
 import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
-import { createOrder } from '../orderSlice'
+import { createOrder } from '../../../app/appSlice'
 
 type CrewToOrderPropsType = {
   car: CrewType

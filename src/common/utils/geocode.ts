@@ -1,7 +1,6 @@
 import { AddressType } from '../types'
-import { addAddress } from '../../features/order/orderSlice'
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit'
-import { searchCrews } from '../../app/appSlice'
+import { searchCrews, setCurrentAddress } from '../../app/appSlice'
 
 export const geocode = (value: number[] | string, dispatch: ThunkDispatch<any, any, AnyAction>) => {
   //@ts-ignore
@@ -14,7 +13,7 @@ export const geocode = (value: number[] | string, dispatch: ThunkDispatch<any, a
         lon: value[1],
       }
       dispatch(searchCrews(value))
-      dispatch(addAddress(address))
+      dispatch(setCurrentAddress(address))
     } else {
       const coordinates = firstGeoObject.geometry.getCoordinates()
       const address: AddressType = {
@@ -23,7 +22,7 @@ export const geocode = (value: number[] | string, dispatch: ThunkDispatch<any, a
         lon: coordinates[1],
       }
       dispatch(searchCrews(coordinates))
-      dispatch(addAddress(address))
+      dispatch(setCurrentAddress(address))
     }
   })
 }

@@ -5,19 +5,19 @@ import TextField from '@mui/material/TextField/TextField'
 import { LoadingBtn } from '../../../common/components/buttons/LoadingBtn'
 import { Button } from '@mui/material'
 import { ChangeEvent, useEffect, useState } from 'react'
-import { getCoordinatesByAddress } from '../orderSlice'
 import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
 import { useAppSelector } from '../../../common/hooks/useAppSelector'
+import { getCoordinatesByAddress } from '../../../app/appSlice'
 
 export const SearchAddress = () => {
   const dispatch = useAppDispatch()
-  const address = useAppSelector((state) => state.order.addresses)
+  const address = useAppSelector((state) => state.app.currentAddress.address)
   const isCrewsLoading = useAppSelector((state) => state.app.isLoading)
 
   const [value, setValue] = useState('')
 
   useEffect(() => {
-    setValue(address ? address.address : '')
+    setValue(address ? address : '')
   }, [address])
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

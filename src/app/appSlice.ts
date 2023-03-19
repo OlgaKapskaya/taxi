@@ -1,7 +1,8 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit'
 import { AddressType, CrewType, OrderType } from '../common/types'
 import { generateCrews } from '../common/utils/generateCrews'
 import { AppRootStateType } from './store'
+import { geocode } from '../common/utils/geocode'
 
 const initialState = {
   crews: [] as CrewType[],
@@ -27,10 +28,16 @@ export const appSlice = createSlice({
     setCrewToOrder: (state, action: PayloadAction<CrewType>) => {
       state.crewToOrder = action.payload
     },
+    addOrder: (state, action: PayloadAction<number>) => {
+      state.order.source_time = Date.now()
+      state.order.crew_id = action.payload
+      state.order.order_id = nanoid(4)
+    },
   },
 })
 
-export const { setIsLoading, setCurrentAddress, setCrews, setCrewToOrder } = appSlice.actions
+export const { setIsLoading, setCurrentAddress, setCrews, setCrewToOrder, addOrder } =
+  appSlice.actions
 export const appReducer = appSlice.reducer
 
 export const getCrews = createAsyncThunk(
@@ -61,3 +68,23 @@ export const searchCrews = createAsyncThunk(
       .finally(() => dispatch(setIsLoading(false)))
   }
 )
+
+export const getAddressByCoordinates = createAsyncThunk(
+  'app/getAddressByCoordinates',
+  (coordinates: number[], { dispatch }) => {
+    // dispatch(setCrews([]))
+    geocode(coordinates, dispatch)
+  }
+)
+
+export const getCoordinatesByAddress = createAsyncThunk(
+  'app/getCoordinatesByAddress',
+  (searchAddress: string, { dispatch }) => {
+    // dispatch(setCrews([]))
+    geocode(searchAddress, dispatch)
+  }
+)
+
+export const createOrder = createAsyncThunk('app/createOrder', (crew_id: number, { dispatch }) => {
+  dispatch(addOrder(crew_id))
+})
