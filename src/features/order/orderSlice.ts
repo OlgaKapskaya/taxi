@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit'
 import { AddressType, OrderType } from '../../common/types'
-import { searchCrews, setCrews } from '../crews/crewsSlice'
+import { setCrews } from '../crews/crewsSlice'
+import { geocode } from '../../common/utils/geocode'
 
 export const orderSlice = createSlice({
   name: 'order',
@@ -24,22 +25,7 @@ export const getAddressByCoordinates = createAsyncThunk(
   'order/getAddressByCoordinates',
   (coordinates: number[], { dispatch }) => {
     dispatch(setCrews([]))
-    //@ts-ignore
-    window.ymaps
-      .geocode(coordinates)
-      .then((res: any) => {
-        const firstGeoObject = res.geoObjects.get(0)
-        const address: AddressType = {
-          address: firstGeoObject.getAddressLine(),
-          lat: coordinates[0],
-          lon: coordinates[1],
-        }
-        dispatch(searchCrews(coordinates))
-        dispatch(addAddress(address))
-      })
-      .catch(() => {
-        return null
-      })
+    geocode(coordinates, dispatch)
   }
 )
 
@@ -47,23 +33,7 @@ export const getCoordinatesByAddress = createAsyncThunk(
   'order/getCoordinatesByAddress',
   (searchAddress: string, { dispatch }) => {
     dispatch(setCrews([]))
-    //@ts-ignore
-    window.ymaps
-      .geocode(searchAddress)
-      .then((res: any) => {
-        const firstGeoObject = res.geoObjects.get(0)
-        const coordinates = firstGeoObject.geometry.getCoordinates()
-        const address: AddressType = {
-          address: searchAddress,
-          lat: coordinates[0],
-          lon: coordinates[1],
-        }
-        dispatch(searchCrews(coordinates))
-        dispatch(addAddress(address))
-      })
-      .catch(() => {
-        return null
-      })
+    geocode(searchAddress, dispatch)
   }
 )
 
