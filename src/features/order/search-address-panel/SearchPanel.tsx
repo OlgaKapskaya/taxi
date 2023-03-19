@@ -7,12 +7,13 @@ import { Button } from '@mui/material'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
 import { useAppSelector } from '../../../common/hooks/useAppSelector'
-import { getCoordinatesByAddress } from '../../../app/appSlice'
+import { getCoordinatesByAddress, setError } from '../../../app/appSlice'
+import { addressValidation } from '../../../common/utils/addressValidation'
 
-export const SearchAddress = () => {
+export const SearchPanel = () => {
   const dispatch = useAppDispatch()
   const address = useAppSelector((state) => state.app.currentAddress.address)
-  const isCrewsLoading = useAppSelector((state) => state.app.isLoading)
+  const isLoading = useAppSelector((state) => state.app.isLoading)
 
   const [value, setValue] = useState('')
 
@@ -22,10 +23,15 @@ export const SearchAddress = () => {
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setValue(e.currentTarget.value)
+    dispatch(setError(''))
   }
 
   const onClickHandler = () => {
-    if (value.trim() !== '') dispatch(getCoordinatesByAddress(value))
+    if (addressValidation(value) === '') {
+      dispatch(getCoordinatesByAddress(value))
+    } else {
+      dispatch(setError(addressValidation(value)))
+    }
   }
   return (
     <Box className={s.box}>
@@ -37,7 +43,7 @@ export const SearchAddress = () => {
         variant="standard"
         className={s.input}
       />
-      {isCrewsLoading ? (
+      {isLoading ? (
         <LoadingBtn />
       ) : (
         <Button onClick={onClickHandler} variant="contained" disabled={value.trim() === ''}>

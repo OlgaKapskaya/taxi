@@ -1,16 +1,14 @@
 import { Map, Placemark, YMaps } from 'react-yandex-maps'
 import React, { FC } from 'react'
-import { CrewType } from '../../../types'
-import { useAppDispatch } from '../../../hooks/useAppDispatch'
-import { getAddressByCoordinates } from '../../../../app/appSlice'
+import { CrewType } from '../../types'
 
 type YandexMapPropsType = {
   crews: CrewType[]
   personCoordinates?: number[]
+  onMapClick: (e: any) => void
 }
 
-export const YandexMap: FC<YandexMapPropsType> = ({ crews, personCoordinates }) => {
-  const dispatch = useAppDispatch()
+export const YandexMap: FC<YandexMapPropsType> = ({ crews, personCoordinates, onMapClick }) => {
   const mapState = {
     center:
       personCoordinates && personCoordinates[0]
@@ -18,11 +16,6 @@ export const YandexMap: FC<YandexMapPropsType> = ({ crews, personCoordinates }) 
         : [53.90393596514452, 27.554710783934965],
     zoom: 17,
     searchControlProvider: 'yandex#search',
-  }
-
-  const onMapClick = (e: any) => {
-    const coords = e.get('coords')
-    dispatch(getAddressByCoordinates(coords))
   }
 
   return (

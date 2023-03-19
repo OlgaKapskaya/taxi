@@ -1,8 +1,9 @@
-import { createAsyncThunk, createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { AddressType, CrewType, OrderType } from '../common/types'
 import { generateCrews } from '../common/utils/generateCrews'
 import { AppRootStateType } from './store'
 import { geocode } from '../common/utils/geocode'
+import { randomInteger } from '../common/utils/random'
 
 const initialState = {
   crews: [] as CrewType[],
@@ -10,6 +11,7 @@ const initialState = {
   order: {} as OrderType,
   currentAddress: {} as AddressType,
   isLoading: false,
+  error: '',
 }
 
 export const appSlice = createSlice({
@@ -18,6 +20,9 @@ export const appSlice = createSlice({
   reducers: {
     setIsLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload
+    },
+    setError: (state, action: PayloadAction<string>) => {
+      state.error = action.payload
     },
     setCurrentAddress: (state, action: PayloadAction<AddressType>) => {
       state.currentAddress = action.payload
@@ -31,12 +36,12 @@ export const appSlice = createSlice({
     addOrder: (state, action: PayloadAction<number>) => {
       state.order.source_time = Date.now()
       state.order.crew_id = action.payload
-      state.order.order_id = nanoid(4)
+      state.order.order_id = randomInteger(1000, 9999)
     },
   },
 })
 
-export const { setIsLoading, setCurrentAddress, setCrews, setCrewToOrder, addOrder } =
+export const { setIsLoading, setCurrentAddress, setCrews, setCrewToOrder, addOrder, setError } =
   appSlice.actions
 export const appReducer = appSlice.reducer
 

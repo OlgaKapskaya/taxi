@@ -19,7 +19,7 @@ export type DriverType = {
 }
 
 export type OrderType = {
-  order_id: string
+  order_id: number
   source_time: number
   addresses: AddressType
   crew_id: number
