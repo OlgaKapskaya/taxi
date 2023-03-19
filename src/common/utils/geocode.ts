@@ -8,11 +8,10 @@ export const geocode = (value: number[] | string, dispatch: ThunkDispatch<any, a
     const firstGeoObject = response.geoObjects.get(0)
     if (Array.isArray(value)) {
       const address: AddressType = {
-        address: firstGeoObject.getAddressLine(),
+        address: `${firstGeoObject.getThoroughfare()} ${firstGeoObject.getPremiseNumber()}`,
         lat: value[0],
         lon: value[1],
       }
-      dispatch(searchCrews(value))
       dispatch(setCurrentAddress(address))
     } else {
       const coordinates = firstGeoObject.geometry.getCoordinates()

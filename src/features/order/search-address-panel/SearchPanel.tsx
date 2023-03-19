@@ -7,7 +7,7 @@ import { Button } from '@mui/material'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
 import { useAppSelector } from '../../../common/hooks/useAppSelector'
-import { getCoordinatesByAddress, setError } from '../../../app/appSlice'
+import { getCoordinatesByAddress, setCrews, setError } from "../../../app/appSlice";
 import { addressValidation } from '../../../common/utils/addressValidation'
 
 export const SearchPanel = () => {
@@ -27,6 +27,7 @@ export const SearchPanel = () => {
   }
 
   const onClickHandler = () => {
+    dispatch(setCrews([]))
     if (addressValidation(value) === '') {
       dispatch(getCoordinatesByAddress(value))
     } else {

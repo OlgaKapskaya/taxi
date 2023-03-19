@@ -77,7 +77,7 @@ export const searchCrews = createAsyncThunk(
 export const getAddressByCoordinates = createAsyncThunk(
   'app/getAddressByCoordinates',
   (coordinates: number[], { dispatch }) => {
-    // dispatch(setCrews([]))
+    dispatch(setCrews([]))
     geocode(coordinates, dispatch)
   }
 )
@@ -85,7 +85,6 @@ export const getAddressByCoordinates = createAsyncThunk(
 export const getCoordinatesByAddress = createAsyncThunk(
   'app/getCoordinatesByAddress',
   (searchAddress: string, { dispatch }) => {
-    // dispatch(setCrews([]))
     geocode(searchAddress, dispatch)
   }
 )
