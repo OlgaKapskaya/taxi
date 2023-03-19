@@ -12,7 +12,7 @@ import { useAppSelector } from '../../../common/hooks/useAppSelector'
 export const SearchAddress = () => {
   const dispatch = useAppDispatch()
   const address = useAppSelector((state) => state.order.addresses)
-  const isCrewsLoading = useAppSelector((state) => state.crews.isCrewsLoading)
+  const isCrewsLoading = useAppSelector((state) => state.app.isLoading)
 
   const [value, setValue] = useState('')
 

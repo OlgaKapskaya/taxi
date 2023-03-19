@@ -4,7 +4,7 @@ import { Crew } from './crew/Crew'
 import { Divider } from '@mui/material'
 
 export const Crews = () => {
-  const crews = useAppSelector((state) => state.crews.crews)
+  const crews = useAppSelector((state) => state.app.crews)
   return (
     <div className={s.container}>
       {crews.length > 0 && (

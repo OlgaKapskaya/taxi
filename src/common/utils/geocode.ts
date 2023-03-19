@@ -1,7 +1,7 @@
 import { AddressType } from '../types'
-import { searchCrews } from '../../features/crews/crewsSlice'
 import { addAddress } from '../../features/order/orderSlice'
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit'
+import { searchCrews } from '../../app/appSlice'
 
 export const geocode = (value: number[] | string, dispatch: ThunkDispatch<any, any, AnyAction>) => {
   //@ts-ignore

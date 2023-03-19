@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit'
 import { AddressType, OrderType } from '../../common/types'
-import { setCrews } from '../crews/crewsSlice'
 import { geocode } from '../../common/utils/geocode'
+import { setCrews } from '../../app/appSlice'
 
 export const orderSlice = createSlice({
   name: 'order',
