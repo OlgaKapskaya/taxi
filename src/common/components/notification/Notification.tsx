@@ -5,5 +5,5 @@ import { useNotification } from './useNotification'
 export const Notifications = () => {
   useNotification()
 
-  return <ToastContainer autoClose={5000} />
+  return <ToastContainer autoClose={3000} limit={1} />
 }

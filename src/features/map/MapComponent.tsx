@@ -1,6 +1,6 @@
 import { YandexMap } from '../../common/components/yandex-map/YandexMap'
 import { useAppSelector } from '../../common/hooks/useAppSelector'
-import { getAddressByCoordinates } from '../../app/appSlice'
+import { getAddressByCoordinates, setError } from '../../app/appSlice'
 import { useAppDispatch } from '../../common/hooks/useAppDispatch'
 
 export const MapComponent = () => {
@@ -12,6 +12,7 @@ export const MapComponent = () => {
 
   const onMapClick = (e: any) => {
     const coords = e.get('coords')
+    dispatch(setError(''))
     dispatch(getAddressByCoordinates(coords))
   }
 

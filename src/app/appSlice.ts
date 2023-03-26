@@ -38,11 +38,21 @@ export const appSlice = createSlice({
       state.order.crew_id = action.payload
       state.order.order_id = randomInteger(1000, 9999)
     },
+    removeOrder: (state) => {
+      state.order = {} as OrderType
+    },
   },
 })
 
-export const { setIsLoading, setCurrentAddress, setCrews, setCrewToOrder, addOrder, setError } =
-  appSlice.actions
+export const {
+  setIsLoading,
+  setCurrentAddress,
+  setCrews,
+  setCrewToOrder,
+  addOrder,
+  setError,
+  removeOrder,
+} = appSlice.actions
 export const appReducer = appSlice.reducer
 
 export const getCrews = createAsyncThunk(
