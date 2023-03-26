@@ -1,48 +1,48 @@
 .container {
-    width: 100%;
-    height: max-content;
+  width: 100%;
+  height: max-content;
 
-    padding: 20px;
+  padding: 20px;
 
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
 
-    box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
 }
 
 .box {
-    display: flex;
-    align-items: flex-end;
-    width: 100%;
-    gap: 10px;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  gap: 10px;
 }
 
 .input {
-    width: 90%;
+  width: 90%;
 }
 
 .input input {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .crewsContainer {
-    display: flex;
-    padding: 10px;
+  display: flex;
+  padding: 10px;
 }
 
 .car {
-    margin: 0 10px;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+  margin: 0 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
 }
 
 @media only screen and (max-width: 600px) {
-    .crewsContainer {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
+  .crewsContainer {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
 }

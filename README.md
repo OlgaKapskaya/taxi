@@ -27,3 +27,18 @@ Cделать страницу заказа такси с формой и кар
      Если адрес не найден, то в месте щелчка появляется красный маркер с подписью "Адрес не найден".
 
 
+
+## Tech Stack
+
+**Client:** react, redux toolkit, react-yandex-maps, react-toastify, mui, dayjs, eslint, prettier
+
+
+
+## Screenshots
+
+![App Screenshot](https://user-images.githubusercontent.com/109616298/227765594-6a8acb76-aff6-4144-88a9-b8574349cfcf.png)
+
+![App Screenshot](https://user-images.githubusercontent.com/109616298/227765643-26204d98-7045-4c97-bb3a-3bab5bf61bb7.png)
+
+
+

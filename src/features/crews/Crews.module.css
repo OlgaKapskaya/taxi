@@ -1,20 +1,20 @@
 .container {
-    position: absolute;
-    right: 35px;
-    bottom: 35px;
-    z-index: 100;
+  position: absolute;
+  right: 35px;
+  bottom: 35px;
+  z-index: 100;
 
-    background-color: whitesmoke;
-    border-radius: 10px;
-    padding: 10px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 10px;
 
-    box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
 }
 .title {
-    font-weight: bold;
+  font-weight: bold;
 }
 @media only screen and (max-width: 600px) {
-    .container {
-        right: 15px;
-    }
+  .container {
+    right: 15px;
+  }
 }

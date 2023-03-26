@@ -4,6 +4,7 @@ import { AddLocation } from '@mui/icons-material'
 import TextField from '@mui/material/TextField/TextField'
 import { LoadingBtn } from '../../../common/components/buttons/LoadingBtn'
 import { Button } from '@mui/material'
+
 import { useSearchPanel } from './useSearchPanel'
 
 export const SearchPanel = () => {

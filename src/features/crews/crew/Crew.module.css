@@ -1,10 +1,10 @@
 .crew {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .item {
-    width: 100px;
+  width: 100px;
 }
