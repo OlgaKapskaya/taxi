@@ -1,6 +1,6 @@
 const errors = {
   empty: 'Введите адрес',
-  invalid: 'Неверный адрес.Формат ввода: Улица, номер дома.',
+  invalid: 'Неверный адрес. Формат ввода: Улица, номер дома.',
 }
 
 export const addressValidation = (address: string): string => {

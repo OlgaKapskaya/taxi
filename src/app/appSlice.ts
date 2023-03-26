@@ -67,7 +67,6 @@ export const searchCrews = createAsyncThunk(
   'app/searchCrews',
   async (coordinates: number[], { dispatch }) => {
     dispatch(setIsLoading(true))
-    dispatch(setCrewToOrder({} as CrewType))
     dispatch(getCrews(coordinates))
       .then(() => dispatch(findCrewToOrder()))
       .finally(() => dispatch(setIsLoading(false)))

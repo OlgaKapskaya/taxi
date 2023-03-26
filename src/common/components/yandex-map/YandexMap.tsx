@@ -1,6 +1,7 @@
 import { Map, Placemark, YMaps } from 'react-yandex-maps'
 import React, { FC } from 'react'
 import { CrewType } from '../../types'
+import { currentCity } from '../../constants/currentCity'
 
 type YandexMapPropsType = {
   crews: CrewType[]
@@ -13,7 +14,7 @@ export const YandexMap: FC<YandexMapPropsType> = ({ crews, personCoordinates, on
     center:
       personCoordinates && personCoordinates[0]
         ? personCoordinates
-        : [53.90393596514452, 27.554710783934965],
+        : [currentCity.lat, currentCity.lon],
     zoom: 17,
     searchControlProvider: 'yandex#search',
   }

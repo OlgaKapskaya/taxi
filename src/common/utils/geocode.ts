@@ -1,8 +1,9 @@
-import { AddressType } from '../types'
+import { AddressType, CrewType } from '../types'
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit'
-import { searchCrews, setCurrentAddress } from '../../app/appSlice'
+import { searchCrews, setCrewToOrder, setCurrentAddress } from '../../app/appSlice'
 
 export const geocode = (value: number[] | string, dispatch: ThunkDispatch<any, any, AnyAction>) => {
+  dispatch(setCrewToOrder({} as CrewType))
   //@ts-ignore
   window.ymaps.geocode(value).then((response: any) => {
     const firstGeoObject = response.geoObjects.get(0)

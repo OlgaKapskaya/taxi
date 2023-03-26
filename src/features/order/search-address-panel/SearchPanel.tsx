@@ -7,8 +7,9 @@ import { Button } from '@mui/material'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
 import { useAppSelector } from '../../../common/hooks/useAppSelector'
-import { getCoordinatesByAddress, setCrews, setError } from '../../../app/appSlice'
+import { getCoordinatesByAddress, setCrews, setCrewToOrder, setError } from '../../../app/appSlice'
 import { addressValidation } from '../../../common/utils/addressValidation'
+import { CrewType } from '../../../common/types'
 
 export const SearchPanel = () => {
   const dispatch = useAppDispatch()
@@ -22,12 +23,13 @@ export const SearchPanel = () => {
   }, [address])
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    dispatch(setCrews([]))
+    dispatch(setCrewToOrder({} as CrewType))
     setValue(e.currentTarget.value)
     dispatch(setError(''))
   }
 
   const onClickHandler = () => {
-    dispatch(setCrews([]))
     if (addressValidation(value) === '') {
       dispatch(getCoordinatesByAddress(value))
     } else {
