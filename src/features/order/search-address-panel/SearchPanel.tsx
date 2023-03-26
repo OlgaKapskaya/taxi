@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box/Box'
-import s from '../OrderPanel.module.css'
+import s from '../Order.module.css'
 import { AddLocation } from '@mui/icons-material'
 import TextField from '@mui/material/TextField/TextField'
 import { LoadingBtn } from '../../../common/components/buttons/LoadingBtn'

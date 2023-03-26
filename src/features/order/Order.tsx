@@ -1,4 +1,4 @@
-import s from './OrderPanel.module.css'
+import s from './Order.module.css'
 import { useAppSelector } from '../../common/hooks/useAppSelector'
 import { SearchPanel } from './search-address-panel/SearchPanel'
 import { OrderPanel } from './order-panel/OrderPanel'

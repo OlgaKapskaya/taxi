@@ -1,6 +1,6 @@
 import { CrewType } from '../../../common/types'
 import { FC } from 'react'
-import s from '../OrderPanel.module.css'
+import s from '../Order.module.css'
 import { Button } from '@mui/material'
 import { PhoneEnabled } from '@mui/icons-material'
 import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
