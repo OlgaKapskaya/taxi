@@ -7,8 +7,11 @@ export const geocode = (value: number[] | string, dispatch: ThunkDispatch<any, a
   window.ymaps.geocode(value).then((response: any) => {
     const firstGeoObject = response.geoObjects.get(0)
     if (Array.isArray(value)) {
+      const street = firstGeoObject.getThoroughfare()
+      const houseNumber = firstGeoObject.getPremiseNumber() ? firstGeoObject.getPremiseNumber() : ''
+
       const address: AddressType = {
-        address: `${firstGeoObject.getThoroughfare()} ${firstGeoObject.getPremiseNumber()}`,
+        address: `${street} ${houseNumber}`,
         lat: value[0],
         lon: value[1],
       }

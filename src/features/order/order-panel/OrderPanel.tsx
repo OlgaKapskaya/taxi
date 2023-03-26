@@ -1,16 +1,16 @@
 import { CrewType } from '../../../common/types'
 import { FC } from 'react'
-import s from '../Order.module.css'
-import { Crew } from '../../crews/crew/Crew'
+import s from '../OrderPanel.module.css'
 import { Button } from '@mui/material'
 import { PhoneEnabled } from '@mui/icons-material'
 import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
 import { createOrder } from '../../../app/appSlice'
+import { CrewCard } from './crew-card/CrewCard'
 
 type CrewToOrderPropsType = {
   car: CrewType
 }
-export const CrewToOrder: FC<CrewToOrderPropsType> = ({ car }) => {
+export const OrderPanel: FC<CrewToOrderPropsType> = ({ car }) => {
   const dispatch = useAppDispatch()
 
   const onClickHandler = (id: number) => {
@@ -19,17 +19,19 @@ export const CrewToOrder: FC<CrewToOrderPropsType> = ({ car }) => {
 
   return (
     <div className={s.crewsContainer}>
-      <span>Экипаж: </span>
+      <span>Подходящий экипаж: </span>
       <div className={s.car}>
-        <Crew car={car} fullInfo />
+        <CrewCard car={car} />
       </div>
-      <Button
-        variant="contained"
-        onClick={() => onClickHandler(car.crew_id)}
-        endIcon={<PhoneEnabled />}
-      >
-        Заказать
-      </Button>
+      <div>
+        <Button
+          variant="contained"
+          onClick={() => onClickHandler(car.crew_id)}
+          endIcon={<PhoneEnabled />}
+        >
+          Заказать
+        </Button>
+      </div>
     </div>
   )
 }

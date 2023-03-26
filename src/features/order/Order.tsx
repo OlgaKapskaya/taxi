@@ -1,7 +1,7 @@
-import s from './Order.module.css'
+import s from './OrderPanel.module.css'
 import { useAppSelector } from '../../common/hooks/useAppSelector'
 import { SearchPanel } from './search-address-panel/SearchPanel'
-import { CrewToOrder } from './crew-card/CrewToOrder'
+import { OrderPanel } from './order-panel/OrderPanel'
 
 export const Order = () => {
   const crew = useAppSelector((state) => state.app.crewToOrder)
@@ -9,7 +9,7 @@ export const Order = () => {
   return (
     <div className={s.container}>
       <SearchPanel />
-      {crew?.car?.model && <CrewToOrder car={crew} />}
+      {crew?.car?.model && <OrderPanel car={crew} />}
     </div>
   )
 }

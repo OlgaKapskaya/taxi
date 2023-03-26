@@ -5,15 +5,15 @@ import { Divider } from '@mui/material'
 
 export const Crews = () => {
   const crews = useAppSelector((state) => state.app.crews)
+  const cars = crews.map((elem) => <Crew key={elem.crew_id} car={elem} />)
+
   return (
     <div className={s.container}>
       {crews.length > 0 && (
         <>
           <span className={s.title}> Найденные автомобили: </span>
           <Divider />
-          {crews.map((elem) => (
-            <Crew key={elem.crew_id} car={elem} />
-          ))}
+          {cars}
         </>
       )}
     </div>

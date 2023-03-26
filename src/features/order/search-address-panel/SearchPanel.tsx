@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box/Box'
-import s from '../Order.module.css'
+import s from '../OrderPanel.module.css'
 import { AddLocation } from '@mui/icons-material'
 import TextField from '@mui/material/TextField/TextField'
 import { LoadingBtn } from '../../../common/components/buttons/LoadingBtn'
@@ -7,7 +7,7 @@ import { Button } from '@mui/material'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
 import { useAppSelector } from '../../../common/hooks/useAppSelector'
-import { getCoordinatesByAddress, setCrews, setError } from "../../../app/appSlice";
+import { getCoordinatesByAddress, setCrews, setError } from '../../../app/appSlice'
 import { addressValidation } from '../../../common/utils/addressValidation'
 
 export const SearchPanel = () => {

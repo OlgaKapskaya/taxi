@@ -13,3 +13,8 @@
 .title {
     font-weight: bold;
 }
+@media only screen and (max-width: 600px) {
+    .container {
+        right: 15px;
+    }
+}
